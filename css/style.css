@@ -121,7 +121,7 @@ body {
 
 /* ====================== ================ sign in ======================= =====================  */
 .signin_div {
-  background: url("Backdrop.png");
+  background: url("../Backdrop.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

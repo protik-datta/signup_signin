@@ -11,7 +11,7 @@ try {
   userData = [];
 }
 
-// ========== SIGN UP FUNCTION ==========
+// ========== SIGN UP FUNCTION ========== //
 function signUpData() {
   const email = emailInput.value.trim().toLowerCase(); 
   const password = passwordInput.value.trim();
@@ -55,8 +55,6 @@ function signUpData() {
 
   userData.push(newUser);
   localStorage.setItem("data", JSON.stringify(userData));
-
-  localStorage.setItem("currentUser", JSON.stringify(newUser));
 
   alert("SignUp Successful!");
   window.location.href = "signin.html";

@@ -1,10 +1,11 @@
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
-  background: url("Backdrop.png") no-repeat center center fixed;
+  background: url("../Backdrop.png") no-repeat center center fixed;
   background-size: cover;
   min-height: 100vh;
   color: #222;
+  overflow-y: hidden;
 }
 .dashboard-container {
   background: rgba(255, 255, 255, 0.85);
@@ -13,6 +14,7 @@ body {
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   padding: 40px 32px;
+  animation: fadeIn 0.8s ease forwards;
 }
 .dashboard-header {
   display: flex;
@@ -25,8 +27,24 @@ body {
   font-weight: 700;
   letter-spacing: 1px;
 }
+
+.header-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.profile-btn {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
 .logout-btn {
-  background: #1976d2;
+  background: #111;
   color: #fff;
   border: none;
   padding: 10px 22px;
@@ -35,9 +53,7 @@ body {
   cursor: pointer;
   transition: background 0.2s;
 }
-.logout-btn:hover {
-  background: #125ea7;
-}
+
 .dashboard-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -65,11 +81,14 @@ body {
   font-weight: 700;
   color: #333;
 }
-@media (max-width: 600px) {
-  .dashboard-content {
-    grid-template-columns: 1fr;
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
   }
-  .dashboard-container {
-    padding: 24px 8px;
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
