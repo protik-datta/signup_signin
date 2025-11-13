@@ -4,15 +4,20 @@ const taskNumber = document.querySelector(".taskNumber");
 const messageNumber = document.querySelector(".messageNumber");
 const notificationNumber = document.querySelector(".notificationNumber");
 
-import { userData } from "./signup.js";
+const currentUser = JSON.parse(localStorage.getItem("currentUser") || "null");
 
-if (viewsNumber) viewsNumber.textContent = userData.randomView;
-if (taskNumber) taskNumber.textContent = userData.randomTask;
-if (messageNumber) messageNumber.textContent = userData.randomMsg;
-if (notificationNumber) notificationNumber.textContent = userData.randomNotification;
-
-if (logoutBtn) {
-  logoutBtn.addEventListener("click", () => {
-    window.location.href = "index.html";
-  });
+if (!currentUser) {
+  alert("You are not logged in!");
+  window.location.href = "signin.html";
+} else {
+  if (viewsNumber) viewsNumber.textContent = currentUser.randomView;
+  if (taskNumber) taskNumber.textContent = currentUser.randomTask;
+  if (messageNumber) messageNumber.textContent = currentUser.randomMsg;
+  if (notificationNumber)
+    notificationNumber.textContent = currentUser.randomNotification;
 }
+
+logoutBtn?.addEventListener("click", () => {
+  localStorage.removeItem("currentUser"); 
+  window.location.href = "signin.html";
+});

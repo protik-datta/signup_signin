@@ -53,23 +53,13 @@ const userPic = document.querySelector("#userPic");
 const emailInput = document.querySelector(".emailInput_signin");
 const passwordInput = document.querySelector(".passwordInput_signin");
 const signinBtn = document.querySelector(".signin_btn");
-const forgetBtn = document.querySelector(".forgetPass");
 const siginINeyeBtn = document.querySelector(".siginINeyeBtn");
 
 let userData = JSON.parse(localStorage.getItem("data") || "[]");
 
+// ========== SIGN IN FUNCTION ==========
 function signInData() {
-  if (!userPic || !emailInput || !passwordInput) {
-    alert("Required elements not found in the DOM.");
-    return;
-  }
-
-  const randomIndex = Math.floor(Math.random() * randomPersons.length);
-  const personObj = randomPersons[randomIndex];
-  const personImg = Object.values(personObj)[0];
-  userPic.src = personImg;
-
-  const email = emailInput.value.trim();
+  const email = emailInput.value.trim().toLowerCase();
   const password = passwordInput.value.trim();
 
   if (!email || !password) {
@@ -79,37 +69,35 @@ function signInData() {
 
   const user = userData.find((u) => u.email === email);
   if (!user) {
-    alert("Email couldn't found!!");
+    alert("Email not found!");
     emailInput.value = "";
     passwordInput.value = "";
-    userPic.src = "Image.png";
     return;
   }
 
   if (user.password !== password) {
-    alert("Password couldn't found!!");
+    alert("Incorrect password!");
     passwordInput.value = "";
     return;
   }
 
-  alert("User logged in successfully");
+  const randomIndex = Math.floor(Math.random() * randomPersons.length);
+  const randomPerson = Object.values(randomPersons[randomIndex])[0];
+  if (userPic) userPic.src = randomPerson;
 
+  localStorage.setItem("currentUser", JSON.stringify(user));
+
+  alert("User logged in successfully!");
   window.location.href = "dashboard.html";
-
-  emailInput.value = "";
-  passwordInput.value = "";
 }
 
-if (signinBtn) {
-  signinBtn.addEventListener("click", signInData);
-}
+// ========== Event Listeners ==========
+signinBtn?.addEventListener("click", signInData);
 
-if (siginINeyeBtn && passwordInput) {
-  siginINeyeBtn.addEventListener("click", () => {
-    const isPassword = passwordInput.type === "password";
-    passwordInput.type = isPassword ? "text" : "password";
+siginINeyeBtn?.addEventListener("click", () => {
+  const isPassword = passwordInput.type === "password";
+  passwordInput.type = isPassword ? "text" : "password";
 
-    siginINeyeBtn.classList.toggle("fa-eye");
-    siginINeyeBtn.classList.toggle("fa-eye-slash");
-  });
-}
+  siginINeyeBtn.classList.toggle("fa-eye");
+  siginINeyeBtn.classList.toggle("fa-eye-slash");
+});
