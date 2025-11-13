@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: url("../Backdrop.png") no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+.profile_card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 40px;
+  width: 420px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.top_section img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.top_section img:hover {
+  transform: scale(1.08);
+}
+
+.userEmail {
+  font-size: 18px;
+  font-weight: 500;
+  color: #eaeaea;
+  word-break: break-word;
+}
+
+.stats_section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.stat_box {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 15px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.stat_box:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.stat_box i {
+  font-size: 24px;
+  color: #00bcd4;
+}
+
+.stat_box h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.stat_box p {
+  font-size: 13px;
+  color: #ccc;
+}
+
+.btn_section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.btn_section button {
+  width: 35%;
+  padding: 14px 0 15px 0;
+  border-radius: 40px;
+  background: #111111;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
