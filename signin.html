@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="signin_div">
+      <div class="signin_overlay">
+        <picture>
+          <img src="Image.png" alt="Image.png" class="login_pic" id="userPic" />
+        </picture>
+
+        <h2 class="login_text">Log in</h2>
+
+        <p class="signUp_text">
+          Don’t have an ccount?
+          <a href="signup.html" class="signup__button">Sign up</a>
+        </p>
+
+        <form action="#" class="signin_form">
+          <label for="email" class="signinLabel">Email</label>
+          <input type="text" class="emailInput_signin" />
+
+          <i class="fa-solid fa-eye siginINeyeBtn" style="color: #000000;"></i>
+
+          <label for="password" class="signinLabel">Password</label>
+          <input type="text" class="passwordInput_signin" />
+
+          <a href="forgot.html" class="forgetPass">Forger Password</a>
+        </form>
+
+        <button class="signin_btn">Log In</button>
+      </div>
+    </div>
+  </body>
+  <script type="module" src="signin.js"></script>
+</html>
