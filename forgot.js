@@ -29,7 +29,6 @@ function forgetPassword() {
     }, 2000);
 
     forgetEmail.value = "";
-
     return;
   }
 
@@ -39,11 +38,9 @@ function forgetPassword() {
 
   setTimeout(() => {
     forgetMessage.classList.add("hidden");
-  }, 60000);
+  }, 6000);
 
   forgetEmail.value = "";
 }
 
-if (forgetBtn) {
-  forgetBtn.addEventListener("click", forgetPassword);
-}
+if (forgetBtn) forgetBtn.addEventListener("click", forgetPassword);
